@@ -1,7 +1,7 @@
 <?php
 
 $mess = array(
-  "form_title" => "Islandora",
+  "form_title" => "Deposit Data",
 );
 
 ?>
