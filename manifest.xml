@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ajxp_plugin name="action.sfudora" label="CONF_MESSAGE[Islandora Integration]" description="CONF_MESSAGE[Ingest files into Islandora]"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:../core.ajaxplorer/ajxp_registry.xsd">
+<ajxp_plugin name="action.islandora_pydio_bridge" label="CONF_MESSAGE[Islandora Integration]" description="CONF_MESSAGE[Ingest files into Islandora]"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:../core.ajaxplorer/ajxp_registry.xsd">
     <client_settings>
         <resources>
-            <i18n namespace="action.sfudora" path="plugins/action.sfudora/i18n"/>
+            <i18n namespace="action.islandora_pydio_bridge" path="plugins/action.islandora_pydio_bridge/i18n"/>
         </resources>
     </client_settings>
     <server_settings>
@@ -11,7 +11,7 @@
     <registry_contributions>
         <actions>
             <action name="islandora_ingest">
-                <gui text="action.sfudora.form_title" title="action.sfudora.form_title" src="share.png" iconClass="icon-share" hasAccessKey="false">
+                <gui text="action.islandora_pydio_bridge.form_title" title="action.islandora_pydio_bridge.form_title" src="share.png" iconClass="icon-share" hasAccessKey="false">
                 <context selection="true" dir="true" recycle="false"
                          actionBar="true" contextMenu="true" infoPanel="false"
                          actionBarGroup="get">
@@ -33,7 +33,7 @@
                             file: selection.getFileNames().pop()
                           })
                         });
-                        var path ='/sfudora/ingest?' + query_string;
+                        var path ='/islandora_pydio_bridge/ingest?' + query_string;
                         window.location.replace(path);
                       ]]></dialogOnOpen>
                       <dialogOnComplete><![CDATA[
