@@ -14,7 +14,7 @@
                 <gui text="action.islandora_pydio_bridge.form_title" title="action.islandora_pydio_bridge.form_title" src="share.png" iconClass="icon-share" hasAccessKey="false">
                 <context selection="true" dir="true" recycle="false"
                          actionBar="true" contextMenu="true" infoPanel="true"
-                         actionBarGroup="change_main,info_panel">
+                         actionBarGroup="change_main,info_panel_share">
                 </context>
                 <selectionContext dir="true" file="true" recycle="false" unique="true"></selectionContext>
                 </gui>
