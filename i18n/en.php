@@ -1,7 +1,7 @@
 <?php
 
 $mess = array(
-  "form_title" => "Export to Islandora",
+  "form_title" => "Export to Publish/Archive",
 );
 
 ?>
