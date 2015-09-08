@@ -7,10 +7,11 @@
     </client_settings>
     <server_settings>
         <global_param name="ISLANDORA_URL" group="CONF_MESSAGE[Islandora]" description="CONF_MESSAGE[Islandora URL]" label="CONF_MESSAGE[Islandora URL]" type="string" expose="true"/>
+        <global_param name="ISLANDORA_ACCOUNT_URL" group="CONF_MESSAGE[Islandora]" description="CONF_MESSAGE[Islandora Account URL]" label="CONF_MESSAGE[Islandora Account URL]" type="string" expose="true"/>
     </server_settings>
     <registry_contributions>
         <actions>
-            <action name="islandora_ingest">
+             <action name="islandora_ingest">
                 <gui text="action.islandora_pydio_bridge.form_title" title="action.islandora_pydio_bridge.form_title" src="share.png" iconClass="icon-share" hasAccessKey="false">
                 <context selection="true" dir="true" recycle="false"
                          actionBar="true" contextMenu="true" infoPanel="true"
@@ -42,6 +43,29 @@
                     </clientCallback>
                     <clientForm id="islandora_form"><![CDATA[
                       <div id="islandora_form"></div>
+                    ]]></clientForm>
+                </processing>
+            </action>
+            <action name="islandora_my_account">
+                <gui text="action.islandora_pydio_bridge.your_publish_archive_space" title="action.islandora_pydio_bridge.your_publish_archive_space" src="share.png" iconClass="icon-share" hasAccessKey="false">
+                <context selection="false" dir="true" recycle="false"
+                         actionBar="true" 
+                         actionBarGroup="put">
+                </context>
+                </gui>
+                <rightsContext noUser="true" userLogged="only" read="true" write="true" adminOnly=""></rightsContext>
+                <processing>
+                    <clientCallback prepareModal="true" dialogOpenForm="islandora_account_form" dialogOkButtonOnly="true" dialogSkipButtons="false">
+                      <dialogOnOpen><![CDATA[                       
+                        var path = "http://localhost:8181/my-account";
+                        window.location.replace(path);
+                      ]]></dialogOnOpen>
+                      <dialogOnComplete><![CDATA[
+                          hideLightBox();
+                      ]]></dialogOnComplete>
+                    </clientCallback>
+                    <clientForm id="islandora_account_form"><![CDATA[
+                      <div id="islandora_account_form"></div>
                     ]]></clientForm>
                 </processing>
             </action>
