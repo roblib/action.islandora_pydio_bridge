@@ -3,6 +3,7 @@
     <client_settings>
         <resources>
             <i18n namespace="action.islandora_pydio_bridge" path="plugins/action.islandora_pydio_bridge/i18n"/>
+            <js className="IslandoraActions" file="plugins/action.islandora_pydio_bridge/res/js/IslandoraActions.js"/>
         </resources>
     </client_settings>
     <server_settings>
@@ -21,26 +22,7 @@
                 </gui>
                 <rightsContext noUser="true" userLogged="only" read="true" write="true" adminOnly=""></rightsContext>
                 <processing>
-                    <clientCallback prepareModal="true" dialogOpenForm="islandora_form" dialogOkButtonOnly="true" dialogSkipButtons="false">
-                      <dialogOnOpen><![CDATA[
-                        selection = ajaxplorer.getUserSelection();
-                        query_string = Object.toQueryString({
-                          is_dir: selection._bDir,
-                          repo_id: ajaxplorer.repositoryId,
-                          download_base_url: '/pydio/index.php',
-                          download_query_params: Object.toQueryString({
-                            get_action: 'download',
-                            secure_token: Connexion.SECURE_TOKEN,
-                            file: selection.getFileNames().pop()
-                          })
-                        });
-                        var path ='/islandora_pydio_bridge/ingest?' + query_string;
-                        window.location.replace(path);
-                      ]]></dialogOnOpen>
-                      <dialogOnComplete><![CDATA[
-                          hideLightBox();
-                      ]]></dialogOnComplete>
-                    </clientCallback>
+                  <clientCallback module="IslandoraActions.Callbacks.exportObject"/>
                     <clientForm id="islandora_form"><![CDATA[
                       <div id="islandora_form"></div>
                     ]]></clientForm>
@@ -49,7 +31,7 @@
             <action name="islandora_my_account">
                 <gui text="action.islandora_pydio_bridge.your_publish_archive_space" title="action.islandora_pydio_bridge.your_publish_archive_space" src="share.png" iconClass="icon-share" hasAccessKey="false">
                 <context selection="false" dir="true" recycle="false"
-                         actionBar="true" 
+                         actionBar="true"
                          actionBarGroup="put">
                 </context>
                 </gui>
