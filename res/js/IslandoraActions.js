@@ -18,8 +18,8 @@
       var fileName = encodeURIComponent(selection.getPath());
       var token = encodeURIComponent(pydio.Parameters.get("SECURE_TOKEN"));
       // TODO find a better method to add the path parameters
-      var path = '/islandora_pydio_bridge/ingest?is_dir=' +isDirectory+'&repo_id=' +repositoryId+'&download_base_url=%2Fpydio%2Findex.php&download_query_params=get_action%3Ddownload%26secure_token%3D'+token
-        +'%26file%3D%252F'+fileName;
+      var path = '/islandora_pydio_bridge/ingest?is_dir=' +isDirectory+'&repo_id=' +repositoryId+'&download_base_url=%2Fpydio7%2Findex.php&download_query_params=get_action%3Ddownload%26secure_token%3D'+token
+        +'%26file%3D'+fileName;
       window.location.replace(path);
     }
   }
