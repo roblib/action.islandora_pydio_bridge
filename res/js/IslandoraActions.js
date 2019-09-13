@@ -22,6 +22,10 @@
         +'%26file%3D'+fileName;
       window.location.replace(path);
     }
+    static backToDrupal() {
+      var path = '/my-account';
+      window.location.replace(path);
+    }
   }
 
     global.IslandoraActions = {
